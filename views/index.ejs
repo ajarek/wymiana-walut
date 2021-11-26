@@ -1,0 +1,49 @@
+<%-include('./partials/header')%>
+<%-include('./partials/navbar')%>
+
+<div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh;">
+    <h1><%=title%> <%=date%> <img src="https://freepngimg.com/thumb/money/48625-3-currency-png-image-high-quality.png" alt="" width="15%"></h1>
+    <table class="table">
+        <thead>
+            
+                
+          <tr>
+            <th scope="col">Waluta</th>
+            <th scope="col">Kod</th>
+            <th scope="col">Cena PLN</th>
+          </tr>
+        </thead>
+        <tbody>
+            <%arr.forEach(el=>{%>
+          <tr>
+            <td><%=el.currency%></td>
+          
+            <td><%=el.code%></td>
+          
+            <td><%=el.mid%></td>
+          </tr>
+            <%})%>
+        </tbody>
+      </table>
+</div>
+<script>
+  function myFunction() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    table = document.querySelector(".table");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+</script>
+<%-include('./partials/footer')%>
