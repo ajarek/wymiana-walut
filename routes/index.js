@@ -5,7 +5,7 @@ import fetch from 'node-fetch'
  const url='http://api.nbp.pl/api/exchangerates/tables/a/'
  const url1='http://api.nbp.pl/api/cenyzlota/last/30/?format=json'
  const url2='http://api.nbp.pl/api/exchangerates/rates/a/'
-
+  
  router.get('/', async (req, res)=>{ 
   const response = await fetch(url)
   const info = await response.json()
@@ -52,5 +52,16 @@ import fetch from 'node-fetch'
            const { effectiveDate}=Object.values(rates)[0]
             res.render('gbp',{title:'Kurs waluty',currency,code,mid,effectiveDate})
           })
+          // .get('/waluta', async (req, res)=>{ 
+          //   const response = await fetch(url3)
+          //   const info = await response.json()
+          //    const {currency,code}=info
+          //     const {rates}=info
+          //     const {bid,ask}=Object.values(rates)[0]
+          //     console.log(currency,code,bid,ask)
+              
+          //   })
+            
+
   export default router
   

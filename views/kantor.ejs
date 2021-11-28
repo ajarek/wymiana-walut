@@ -1,0 +1,33 @@
+<%-include('./partials/header')%>
+<%-include('./partials/navbar')%>
+<div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="col-md-6 shadow p-3">
+
+        <h3>Kantor kup-sprzedaj <span class="fs-1">💱</span></h3>
+        <form class="row g-3" action="/kantor/" method="POST">
+            <div class="col-md-12">
+                <label for="waluta" class="form-label">Symbol Waluty</label>
+                <input type="text" class="form-control" name="waluta" required id="waluta">
+            </div>
+            <div class="col-md-12">
+                <label for="ile" class="form-label">Kwota</label>
+                <input type="number" class="form-control" name="ile" required id="ile" min="0" step="10">
+            </div>
+            <div class="col-md-12">
+                <select class="form-select" name="sel" id="sel">
+                    <option selected>Rodzaj transakcji</option>
+                    <option value="sprzedaj">Sprzedaj</option>
+                    <option value="kup">Kup</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-success">Zatwierdź Transakcje</button>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+<%-include('./partials/footer')%>
