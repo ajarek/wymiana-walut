@@ -11,23 +11,23 @@
             </div>
             <div class="col-md-12">
                 <label for="ile" class="form-label">Kwota</label>
-                <input type="number" class="form-control" name="ile" required id="ile" min="0" step="10">
+                <input type="number" class="form-control" name="ile" required id="ile" min="1" step="1">
             </div>
             <div class="col-md-12">
-                <select class="form-select" name="sel" id="sel">
-                    <option selected>Rodzaj transakcji</option>
+                <select class="form-select" name="sel" id="sel" required>
+                    <option value=''>Rodzaj transakcji</option>
                     <option value="sprzedaj">Sprzedaj</option>
                     <option value="kup">Kup</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-success">Zatwierdź Transakcje</button>
-
         </form>
     </div>
 </div>
-
-
-
+<script>
+    input = document.getElementById("search");
+    input.style.display = "none";
+</script>
 
 
 <%-include('./partials/footer')%>

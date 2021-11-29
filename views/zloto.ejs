@@ -3,76 +3,83 @@
 <%-include('./partials/navbar')%>
 
 <div class="container d-flex flex-column justify-content-center align-items-center "
-    style="min-height: 100vh; width: 100vw;">
-    <h1 class="text-center"><%=title%> <img src="https://c.tenor.com/zj986h1KEL8AAAAj/gold-golden-heart.gif" alt="" width="15%"></h1>
-    <div class="row w-100">
-        <div class="col-lg-6  ">
+  style="min-height: 100vh; width: 100vw;">
+  <h1 class="text-center"><%=title%> <img src="https://c.tenor.com/zj986h1KEL8AAAAj/gold-golden-heart.gif" alt=""
+      width="15%"></h1>
+  <div class="row w-100">
+    <div class="col-lg-6  ">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Data</th>
+            <th scope="col">Cena PLN </span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%info.forEach(el=>{%>
+          <tr>
+            <td class="data"><%=el.data%></td>
 
-
-            <table class="table">
-                <thead>
-                        <tr>
-                            <th scope="col">Data</th>
-                            <th scope="col">Cena PLN </span></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%info.forEach(el=>{%>
-                    <tr>
-                        <td class="data"><%=el.data%></td>
-
-                        <td class="cena"><%=el.cena%></td>
-                    </tr>
-                    <%})%>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-lg-6 " >
-            <div class=" text-center mb-4 ">Cena wyliczona w NBP cena 1 g złota (w próbie 1000)</div>
-            <canvas id="myChart" style="width:100%;height: 60vh;"></canvas>
-        </div>
+            <td class="cena"><%=el.cena%></td>
+          </tr>
+          <%})%>
+        </tbody>
+      </table>
     </div>
-    <script>
-        const mycena = document.querySelectorAll('.cena');
-        const mydata = document.querySelectorAll('.data');
-        let xValues = [];
-        let yValues = [];
-        mycena.forEach(el => {
-           yValues.push(el.innerHTML );
-        });
-        
-        mydata.forEach(el => {
+    <div class="col-lg-6 ">
+      <div class=" text-center mb-4 ">Cena wyliczona w NBP cena 1 g złota (w próbie 1000)</div>
+      <canvas id="myChart" style="width:100%;height: 60vh;"></canvas>
+    </div>
+  </div>
+  <script>
+    const mycena = document.querySelectorAll('.cena');
+    const mydata = document.querySelectorAll('.data');
+    let xValues = [];
+    let yValues = [];
+    mycena.forEach(el => {
+      yValues.push(el.innerHTML);
+    });
 
-            xValues.push(el.innerHTML.split('-')[2]);
-        });
-        
-        new Chart("myChart", {
-          type: "line",
-          data: {
-            labels: xValues,
-            datasets: [{
-              fill: false,
-              lineTension: 0,
-              backgroundColor: "#FFD740",
-              borderColor: "rgba(117,117,117,0.5)",
-              data: yValues
-            }]
-          },
-          options: {
-            legend: {display: false},
-            scales: {
-                xAxes: [{ticks: {min: 1, max:31}}],
-              yAxes: [{ticks: {min: 220, max:250}}],
+    mydata.forEach(el => {
+
+      xValues.push(el.innerHTML.split('-')[2]);
+    });
+
+    new Chart("myChart", {
+      type: "line",
+      data: {
+        labels: xValues,
+        datasets: [{
+          fill: false,
+          lineTension: 0,
+          backgroundColor: "#FFD740",
+          borderColor: "rgba(117,117,117,0.5)",
+          data: yValues
+        }]
+      },
+      options: {
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [{
+            ticks: {
+              min: 1,
+              max: 31
             }
-          }
-        });
-        </script>
-        <script>
-          input = document.getElementById("search");
-          input.style.display = "none";
-        </script>
-     
-       
-  
-
-    <%-include('./partials/footer')%>
+          }],
+          yAxes: [{
+            ticks: {
+              min: 220,
+              max: 250
+            }
+          }],
+        }
+      }
+    });
+  </script>
+  <script>
+    input = document.getElementById("search");
+    input.style.display = "none";
+  </script>
+  <%-include('./partials/footer')%>

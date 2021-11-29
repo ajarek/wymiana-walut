@@ -2,29 +2,26 @@
 <%-include('./partials/navbar')%>
 
 <div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh;">
-    <h1><%=title%> <%=date%> <img src="https://freepngimg.com/thumb/money/48625-3-currency-png-image-high-quality.png" alt="" width="15%"></h1>
-    <table class="table">
-        <thead>
-            
-                
-          <tr>
-            <th scope="col">Waluta</th>
-            <th scope="col">Kod</th>
-            <th scope="col">Cena PLN</th>
-          </tr>
-        </thead>
-        <tbody>
-            <%arr.forEach(el=>{%>
-          <tr>
-            <td><%=el.currency%></td>
-          
-            <td><%=el.code%></td>
-          
-            <td><%=el.mid%></td>
-          </tr>
-            <%})%>
-        </tbody>
-      </table>
+  <h1><%=title%> <%=date%> <img src="https://freepngimg.com/thumb/money/48625-3-currency-png-image-high-quality.png"
+      alt="" width="15%"></h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Waluta</th>
+        <th scope="col">Kod</th>
+        <th scope="col">Cena PLN</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%arr.forEach(el=>{%>
+      <tr>
+        <td><%=el.currency%></td>
+        <td><%=el.code%></td>
+        <td><%=el.mid%></td>
+      </tr>
+      <%})%>
+    </tbody>
+  </table>
 </div>
 <script>
   function myFunction() {

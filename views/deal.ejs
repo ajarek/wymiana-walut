@@ -1,19 +1,20 @@
 <%-include('./partials/header')%>
 <%-include('./partials/navbar')%>
 <div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="text-danger"><%=error%></div>
     <div class="card p-4">
         <div class="card-header">
-            <h6>Rodzaj transakcji : <%=select%></h6><br> 
+            <h6>Rodzaj transakcji : <%=select%></h6><br>
             <h6>Waluta : <%=currency%></h6><br>
-            
+
         </div>
         <div class="card-body">
             <% if (select==='sprzedaj') { %>
             <% var x=bid %>
-            <% } %> 
+            <% } %>
             <% if (select==='kup') { %>
-                <% var x=ask %>
-                <% } %> 
+            <% var x=ask %>
+            <% } %>
             <% let y=quantity%>
             <h5 class="card-title">Wartość Transakcji : <%=(x*y).toFixed(2)%> PLN</h5><br>
             <h6>Ilość : <%=quantity%> <%=result%></h6><br>
@@ -21,11 +22,9 @@
             <a href="/kantor" class="btn btn-success mt-4">Zatwierdż</a>
         </div>
     </div>
-
-
-
-    
-
 </div>
-
+<script>
+    input = document.getElementById("search");
+    input.style.display = "none";
+</script>
 <%-include('./partials/footer')%>
