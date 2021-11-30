@@ -1,24 +1,24 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import fetch from 'node-fetch'
-import dateFormat, { masks } from "dateformat";
+
 const now = new Date();
 
 let  todaysDate
-if(dateFormat(now, "N")==0){
+if(now.getDay()==0){
     var time = new Date().getTime()
     let piatek= new Date(time - (48*60*60*1000))
-    todaysDate = piatek.toLocaleDateString('ko-KR').replaceAll('. ', '-')
+    todaysDate = piatek.toISOString().split('T')[0]
     
 }
-if(dateFormat(now, "N")==6){
-    var time = new Date().getTime()
+if(now.getDay()==6){
+    var time =new Date().getTime()
     let piatek= new Date(time - (24*60*60*1000))
-    todaysDate = piatek.toLocaleDateString('ko-KR').replaceAll('. ', '-')
+    todaysDate = piatek.toISOString().split('T')[0]
     
 }
 else{
- todaysDate = dateFormat(now, "yyyy-mm-dd");
+ todaysDate = now.toISOString().split('T')[0]
 }
 
 const router1 = express.Router()
